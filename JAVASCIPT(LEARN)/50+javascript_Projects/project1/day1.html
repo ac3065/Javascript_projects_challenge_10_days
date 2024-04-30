@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: antiquewhite;
+      font-family: "Poppins", sans-serif;
+      font-weight: 100;
+      font-style: normal;
+    }
+    .input {
+      border: 1.9px solid blue;
+      display: block;
+      width: 90%;
+      margin: 0 40px;
+      border-radius: 7px;
+      padding: 10px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      text-align: center;
+      -webkit-box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+      box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+    }
+
+    .container {
+      height: 450px;
+      width: 35%;
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 6%;
+      -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      background-color: white;
+    }
+    .outside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .button {
+      display: block;
+      width: 90%;
+      margin: 0 40px;
+      border-radius: 1px;
+      padding: 3px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      background-color: rgb(121, 194, 12);
+      border: none;
+      -webkit-box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+      box-shadow: 3px 4px 8px -1px rgba(66, 68, 90, 1);
+      color: white;
+    }
+    img{
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div class="outside">
+      <div class="container">
+        <h3 id="heading">QR Code Generator</h3>
+        <input
+          class="input"
+          type="text"
+          placeholder="paste your url here or type"/>
+        <button class="button">Click here to Generate QR Code</button>
+        <img class="image" src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      let inp = document.querySelector(".input");
+      let butt = document.querySelector(".button");
+      let image = document.querySelector(".image");
+      console.log(inp);
+      console.log(butt);
+      console.log(image);
+      butt.addEventListener("click",()=>{
+        const value = inp.value;
+        if(!value){
+          alert("please provide correct url");
+        }else{
+         image.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inp}`
+         image.alt = `QR code for ${inp}`
+        
+        }
+      })
+      
+
+    </script>
+  </body>
+</html>
